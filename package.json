@@ -1,0 +1,12 @@
+{
+  "name": "ultimatebackend",
+  "version": "1.0.0",
+  "description": "This is backend learn course ",
+  "license": "ISC",
+  "author": "Sushant Yadav",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+   "dev": "node index.js"
+  }
+}
