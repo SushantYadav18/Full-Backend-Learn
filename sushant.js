@@ -1,9 +1,0 @@
-
- function name(params) {
-    
-    console.log("hello guys")
- }
-
- name();
-
- 
