@@ -1,48 +1,73 @@
-import React from 'react'
-import axios from "axios"
+import React, { useState } from "react";
+import axios from "axios";
 
 const App = () => {
+  const [name, setName] = useState(null);
+  const [city, setCity] = useState(null);
+  const [age, setAge] = useState(null);
 
-   async function getFetch() {
+  async function getFetch() {
+    //  axios.get("http://localhost:8000/")
+    //  .then((e)=>{
+    //   console.log(e.data)
+    //  })
+    // .catch((e)=>{
+    //   console.log(e)
+    // })
 
- axios.get("http://localhost:8000/")
- .then((e)=>{
-  console.log(e.data)
- })
-.catch((e)=>{
-  console.log(e)
-})
+    axios
+      .post("http://localhost:8000/", {
+        name,
+        city,
+        age,
+      })
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 
+  //     try {
+  //      const res = await fetch("http://localhost:8000/")
 
+  //   let data= await res.json()
+  //      console.log(data)
 
-   }
-
-
-
-
-//     try {
-//      const res = await fetch("http://localhost:8000/")
-
-//   let data= await res.json()
-//      console.log(data)   
-
-//   }
-//   catch(error){
-//   console.log(error)
-// }
-
-
-
-
-
-
+  //   }
+  //   catch(error){
+  //   console.log(error)
+  // }
 
   return (
-    <div>
-      <h1 className='text-4xl text-center m-20 text-shadow-black'>Hello guys</h1>
-      <button className="border-2 border-black" onClick={getFetch} >send</button>
-    </div>
-  )
-}
+    <div >
+      <div className="flex flex-3 bottom-2 border-amber-200">
+      <input
+        type="text"
+        placeholder="Enter Your Name: "
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />  <br />
 
-export default App
+      <input
+        type="text"
+        placeholder="City Name: "
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Enter Your age: "
+        value={age}
+        onChange={(e) => setAge(e.target.value)}
+      />
+      <button className="bg-gray-500" onClick={()=>getFetch()}>Send</button>
+
+      {/* <button className="border-2 border-black" onClick={getFetch} >send</button> */}
+    </div>
+    </div>
+  );
+};
+
+export default App;

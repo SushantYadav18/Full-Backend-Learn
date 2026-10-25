@@ -13,11 +13,18 @@ app.use(cors({
 let port = 8000;
 
 
-
+app.use(express.json())
 app.get("/", (req,res)=>{
 
     res.json({name:"sushant", age:23})
 })
+
+
+ app.post("/", (req,res)=>{
+    console.log(req.body)
+    res.send({success:true})
+ })
+
 
 app.listen(port,()=>{
     console.log("Server Running at port 8000...")
