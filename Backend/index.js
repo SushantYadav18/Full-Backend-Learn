@@ -3,7 +3,7 @@ import cors from "cors"
 
 let app = express()
 
-//  app.use(cors())                          //this give to allow everyone  (third part middleware) to access the backend server
+ app.use(cors())                          //this give to allow everyone  (third part middleware) to access the backend server
 
 // app.use(cors({
 //     "origin":"http://localhost:5173"  //this give to allow specific port that will defined 
@@ -22,7 +22,11 @@ app.use(express.json())            //this is a built-in middleware function in E
 //     }
 //     next()
 // })
+app.get("/about", (req,res)=>{
+    res.send("About Page")
+})
                     
+
 
 app.get("/", (req,res)=>{
 
