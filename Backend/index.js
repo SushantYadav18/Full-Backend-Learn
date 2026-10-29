@@ -25,7 +25,12 @@ app.use(express.json())            //this is a built-in middleware function in E
 app.get("/about", (req,res)=>{
     res.send("About Page")
 })
-                    
+  
+app.get("/contact", (req,res)=>{
+    res.send("Contact Page")
+})
+
+
 
 
 app.get("/", (req,res)=>{
